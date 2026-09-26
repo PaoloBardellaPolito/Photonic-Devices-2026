@@ -21,7 +21,7 @@ The material may include:
 
 Most notebooks are designed to run directly in **Google Colab**, without requiring a local Python installation.
 
-Each notebook can be opened in Colab and executed cell by cell. Students are encouraged to modify parameters, rerun the calculations, and explore how the physical behavior changes.
+Each notebook can be opened in Colab using the link available in its accompanying README file, and executed cell by cell. Students are encouraged to modify parameters, rerun the calculations, and explore how the physical behavior changes.
 
 Some simulation activities may require additional software or packages; specific instructions will be provided in the corresponding folders.
 
