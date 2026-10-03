@@ -24,7 +24,7 @@ The notebooks cover:
 
 ### `Bragg_Grating_Reflectivity.ipynb`
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Grating/Bragg_Grating_Reflectivity.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Gratings/Bragg_Grating_Reflectivity.ipynb)
 
 Interactive exploration of the complex reflection coefficient of a uniform Bragg grating.
 
