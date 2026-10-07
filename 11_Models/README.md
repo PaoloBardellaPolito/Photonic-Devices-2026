@@ -99,7 +99,7 @@ A physical quantity such as coupling length or output power should be monitored 
 The notebook intentionally uses a simple educational model:
 
 - scalar BPM;
-- two-dimensional $x$-$z$ geometry;
+- two-dimensional $x$ - $z$ geometry;
 - predominantly forward propagation;
 - paraxial approximation;
 - simple transverse boundary conditions;
