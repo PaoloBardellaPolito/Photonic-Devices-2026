@@ -29,31 +29,17 @@ A compact implementation of the scalar finite-difference Beam Propagation Method
 
 The notebook first calculates the fundamental mode of an isolated input waveguide by solving the transverse eigenvalue problem
 
-$$
-\left[
-\frac{d^2}{dx^2}
-+
-k_0^2 n^2(x)
-\right]U(x)
-=
-\beta^2 U(x).
-$$
+$$\left[\frac{d^2}{dx^2}+k_0^2 n^2(x)\right]U(x)=\beta^2 U(x).$$
 
 The calculated mode is then used as the input field for BPM propagation through a directional coupler.
 
 The BPM formulation is based on
 
-$$
-E(x,z)
-=
-u(x,z)e^{-j\beta_{\rm ref}z},
-$$
+$$E(x,z)=u(x,z)e^{-j\beta_{\rm ref}z},$$
 
 with
 
-$$
-\beta_{\rm ref}=k_0 n_{\rm ref},
-$$
+$$\beta_{\rm ref}=k_0 n_{\rm ref},$$
 
 so that the numerical calculation follows the slowly varying envelope \(u(x,z)\).
 
