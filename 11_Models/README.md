@@ -29,7 +29,7 @@ A compact implementation of the scalar finite-difference Beam Propagation Method
 
 The notebook first calculates the fundamental mode of an isolated input waveguide by solving the transverse eigenvalue problem
 
-\[
+$$
 \left[
 \frac{d^2}{dx^2}
 +
@@ -37,23 +37,23 @@ k_0^2 n^2(x)
 \right]U(x)
 =
 \beta^2 U(x).
-\]
+$$
 
 The calculated mode is then used as the input field for BPM propagation through a directional coupler.
 
 The BPM formulation is based on
 
-\[
+$$
 E(x,z)
 =
 u(x,z)e^{-j\beta_{\rm ref}z},
-\]
+$$
 
 with
 
-\[
+$$
 \beta_{\rm ref}=k_0 n_{\rm ref},
-\]
+$$
 
 so that the numerical calculation follows the slowly varying envelope \(u(x,z)\).
 
@@ -75,8 +75,8 @@ The code can be modified to investigate the effect of:
 - waveguide separation;
 - core and cladding refractive indices;
 - wavelength;
-- transverse grid spacing \(\Delta x\);
-- longitudinal propagation step \(\Delta z\);
+- transverse grid spacing $\Delta x$;
+- longitudinal propagation step $\Delta z$;
 - computational-window width;
 - propagation length.
 
@@ -91,7 +91,7 @@ Some useful questions are:
 - How does the index contrast affect modal confinement and coupling?
 - How does the wavelength affect the coupling strength?
 - What happens if the input field is not an eigenmode of the isolated waveguide?
-- How sensitive is the result to \(\Delta x\) and \(\Delta z\)?
+- How sensitive is the result to $\Delta x$ and $\Delta z$?
 - What happens if the transverse computational window is too narrow?
 - Why does the field remain almost unchanged when an eigenmode propagates in a uniform waveguide?
 - Under which conditions would the scalar or paraxial BPM approximation become unreliable?
@@ -102,8 +102,8 @@ A smooth field map does not guarantee numerical accuracy.
 
 The calculation should be repeated using:
 
-- smaller \(\Delta x\);
-- smaller \(\Delta z\);
+- smaller $\Delta x$;
+- smaller $\Delta z$;
 - a larger transverse computational window.
 
 A physical quantity such as coupling length or output power should be monitored until it no longer changes significantly.
@@ -113,7 +113,7 @@ A physical quantity such as coupling length or output power should be monitored 
 The notebook intentionally uses a simple educational model:
 
 - scalar BPM;
-- two-dimensional \(x\)-\(z\) geometry;
+- two-dimensional $x$-$z$ geometry;
 - predominantly forward propagation;
 - paraxial approximation;
 - simple transverse boundary conditions;
