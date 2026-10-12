@@ -6,7 +6,7 @@ The notebook is intended for the **Photonic Devices 2026** course. It connects t
 
 ## Notebook
 
-### `BPM_directional_coupler_Colab.ipynb`
+### `All_Pass_Ring.ipynb`
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Ring/All_Pass_Ring.ipynb)
 
