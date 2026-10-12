@@ -1,202 +1,168 @@
-# Interactive All-Pass Ring Resonator
+# Interactive all-pass ring resonator
 
-This notebook provides an interactive model of an **all-pass microring resonator** for the *Photonic Devices 2026* course.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Ring/All_Pass_Ring.ipynb)
+A compact educational notebook for exploring the spectral response of an **all-pass ring resonator**.
 
-## Purpose
+The notebook is intended for the **Photonic Devices 2026** course. It connects the analytical ring-resonator model used in the lectures with an interactive wavelength-domain simulation.
 
-The notebook is intended to connect the analytical description of an all-pass ring resonator with its spectral response.
+## Notebook
 
-Interactive controls make it possible to investigate how the resonator behavior changes with:
+- [`All_Pass_Ring.ipynb`](All_Pass_Ring.ipynb)
 
-- field self-coupling coefficient \(t\);
-- ring round-trip length \(L\);
-- waveguide propagation loss;
-- effective refractive index \(n_{\mathrm{eff}}\);
-- group index \(n_g\);
-- reference wavelength \(\lambda_0\).
+The notebook can be opened directly in **Google Colab**:
 
-A dedicated control can also impose the **critical-coupling condition** automatically.
+[Open `All_Pass_Ring.ipynb` in Google Colab](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Ring/All_Pass_Ring.ipynb)
 
-## Model
+## Physical model
 
 The round-trip propagation factor is
 
-\[
+$$
 p(\lambda)=a\,e^{-j\phi(\lambda)},
-\]
+$$
 
-where \(a\) is the round-trip field attenuation and
+with
 
-\[
+$$
 \phi(\lambda)=\beta(\lambda)L,
 \qquad
-\beta(\lambda)=\frac{2\pi n_{\mathrm{eff}}(\lambda)}{\lambda}.
-\]
+\beta(\lambda)=\frac{2\pi n_{\rm eff}(\lambda)}{\lambda}.
+$$
 
-The all-pass transfer function is
+The through-port transfer function is
 
-\[
-H(\lambda)=\frac{t-p(\lambda)}
-{1-t\,p(\lambda)}.
-\]
-
-The displayed power transmission is
-
-\[
-T(\lambda)=|H(\lambda)|^2.
-\]
-
-## Linearized dispersion model
-
-The wavelength dependence of the effective index is approximated around the reference wavelength \(\lambda_0\) by
-
-\[
-n_{\mathrm{eff}}(\lambda)
-\simeq
-n_{\mathrm{eff},0}
-+
-\left.
-\frac{d n_{\mathrm{eff}}}{d\lambda}
-\right|_{\lambda_0}
-(\lambda-\lambda_0).
-\]
-
-Using
-
-\[
-n_g
+$$
+H_{\rm th}(\lambda)
 =
-n_{\mathrm{eff}}
--
-\lambda
-\frac{d n_{\mathrm{eff}}}{d\lambda},
-\]
+\frac{t-p(\lambda)}
+{1-t\,p(\lambda)},
+$$
 
-the slope is obtained directly from the specified values of \(n_{\mathrm{eff},0}\) and \(n_g\):
+and the power transmission is
 
-\[
-\left.
-\frac{d n_{\mathrm{eff}}}{d\lambda}
-\right|_{\lambda_0}
+$$
+T(\lambda)=|H_{\rm th}(\lambda)|^2.
+$$
+
+The propagation loss is specified as a **power attenuation coefficient in dB/cm**. The corresponding round-trip field attenuation is
+
+$$
+a
 =
-\frac{n_{\mathrm{eff},0}-n_g}{\lambda_0}.
-\]
+10^{-\alpha_{\rm dB/cm}L_{\rm cm}/20}.
+$$
 
-This simple model allows \(n_{\mathrm{eff}}\) to determine the absolute resonance positions while \(n_g\) controls, to first order, the resonance spacing.
+At resonance,
 
-## Loss model
+$$
+H_{\rm th,res}
+=
+\frac{t-a}{1-ta}.
+$$
 
-The propagation loss is specified as a **power loss in dB/cm**.
+Hence the ring is:
 
-For a round-trip length \(L\), the corresponding field attenuation is
-
-\[
-a=
-10^{-\alpha_{\mathrm{dB/cm}}L_{\mathrm{cm}}/20}.
-\]
-
-For an ideal lossless directional coupler, the cross-coupling amplitude is
-
-\[
-\kappa=\sqrt{1-t^2}.
-\]
-
-## Quantities calculated by the notebook
-
-For every choice of parameters, the notebook evaluates and displays:
-
-- round-trip length and equivalent ring radius;
-- round-trip amplitude attenuation \(a\);
-- self-coupling coefficient \(t\);
-- cross-coupling coefficient \(\kappa\);
-- coupling regime: undercoupled, critically coupled, or overcoupled;
-- resonance order and nearest resonance wavelength;
-- free spectral range in frequency and wavelength;
-- resonance FWHM;
-- finesse;
-- quality factor \(Q\);
-- transmission at resonance.
-
-The approximate free spectral range is
-
-\[
-\mathrm{FSR}_f
-\simeq
-\frac{c}{n_g L},
-\]
-
-or, in wavelength,
-
-\[
-\mathrm{FSR}_\lambda
-\simeq
-\frac{\lambda_r^2}{n_g L}.
-\]
-
-For a sufficiently narrow resonance, the wavelength FWHM is estimated as
-
-\[
-\Delta\lambda_{\mathrm{FWHM}}
-\simeq
-\mathrm{FSR}_\lambda
-\frac{1-ta}{\pi\sqrt{ta}},
-\]
-
-and
-
-\[
-Q=
-\frac{\lambda_r}
-{\Delta\lambda_{\mathrm{FWHM}}}.
-\]
-
-## Interactive exploration
-
-The sliders can be used to examine several important physical effects.
-
-### Ring size and FSR
-
-Increasing the round-trip length decreases the free spectral range:
-
-\[
-L\uparrow
-\quad\Rightarrow\quad
-\mathrm{FSR}\downarrow.
-\]
-
-### Coupling regimes
-
-The relation between \(t\) and \(a\) determines the coupling regime:
-
-- \(t>a\): undercoupled;
-- \(t=a\): critical coupling;
-- \(t<a\): overcoupled.
+- **undercoupled** for $t>a$;
+- **critically coupled** for $t=a$;
+- **overcoupled** for $t<a$.
 
 At critical coupling, the through-port transmission ideally vanishes at resonance.
 
-### Effective index and group index
+## Linearized effective-index model
 
-Changing \(n_{\mathrm{eff}}\) mainly shifts the absolute resonance positions, while changing \(n_g\) changes the FSR.
+The wavelength dependence of the effective index is represented by a first-order expansion around
 
-### Propagation loss
+$$
+\lambda_0=1.55\,\mu{\rm m}.
+$$
 
-Increasing propagation loss reduces the round-trip amplitude \(a\), changes the critical-coupling condition, and modifies the resonance linewidth and quality factor.
+Using
 
-## Output plots
+$$
+n_g
+=
+n_{\rm eff}
+-
+\lambda\frac{d n_{\rm eff}}{d\lambda},
+$$
 
-The notebook produces:
+the notebook writes
 
-1. **Power transmission versus wavelength**, showing the periodic resonances of the all-pass ring.
-2. **Phase of the transfer function versus wavelength**, showing the rapid phase variation close to resonance.
+$$
+n_{\rm eff}(\lambda)
+\simeq
+n_{\rm eff,0}
++
+\frac{n_{\rm eff,0}-n_g}{\lambda_0}
+(\lambda-\lambda_0).
+$$
 
-The wavelength window is automatically adapted to the FSR so that several resonances remain visible when the ring parameters are changed.
+This separates two useful effects:
 
-## Running the notebook
+- $n_{\rm eff,0}$ mainly determines the absolute resonance positions;
+- $n_g$ determines the resonance spacing to first order.
 
-The easiest option is to open the notebook directly in **Google Colab** using the link above.
+## What the notebook does
 
-The notebook uses only standard scientific Python packages:
+The notebook contains:
+
+- an analytical all-pass-ring transfer function;
+- a linearized model of $n_{\rm eff}(\lambda)$;
+- conversion of waveguide loss in dB/cm into round-trip field attenuation;
+- interactive sliders for $t$, $L$, propagation loss, $n_{\rm eff,0}$, and $n_g$;
+- automatic identification of the coupling regime;
+- calculation of the resonance nearest $\lambda_0$;
+- calculation of FSR in frequency and wavelength;
+- calculation of FWHM, finesse, and quality factor $Q$;
+- through-port power transmission versus wavelength;
+- through-port phase response versus wavelength;
+- markers showing consecutive resonances.
+
+The wavelength window is automatically adapted to the FSR so that several resonances remain visible while the parameters are changed.
+
+## Main analytical quantities
+
+The free spectral range is approximated by
+
+$$
+{\rm FSR}_f
+\simeq
+\frac{c}{n_gL},
+$$
+
+or, in wavelength,
+
+$$
+{\rm FSR}_\lambda
+\simeq
+\frac{\lambda_r^2}{n_gL}.
+$$
+
+For a sufficiently narrow resonance,
+
+$$
+\Delta\lambda_{\rm FWHM}
+\simeq
+{\rm FSR}_\lambda
+\frac{1-ta}{\pi\sqrt{ta}},
+$$
+
+and
+
+$$
+Q
+=
+\frac{\lambda_r}{\Delta\lambda_{\rm FWHM}}.
+$$
+
+For an ideal lossless bus-ring coupler,
+
+$$
+t^2+\kappa^2=1.
+$$
+
+## Requirements
+
+The notebook uses only standard scientific Python packages plus Jupyter widgets:
 
 ```text
 numpy
@@ -204,15 +170,79 @@ matplotlib
 ipywidgets
 ```
 
-No local installation is required when using Colab.
+These packages are available in Google Colab.
 
-## Course context
+For a local installation:
 
-This notebook accompanies the discussion of directional couplers and microring resonators in the **Photonic Devices 2026** course.
+```bash
+pip install numpy matplotlib ipywidgets
+```
 
-It is intended as an interactive educational model rather than as a full electromagnetic simulator. In particular, the coupler is represented by wavelength-independent coefficients and the waveguide dispersion is described using a first-order model around \(\lambda_0\).
+## Running in Google Colab
 
----
+The notebook is stored in the `Ring` directory of the course repository.
 
-Paolo Bardella  
-Politecnico di Torino
+Use the direct Colab link above, or:
+
+1. open Google Colab;
+2. select **File -> Open notebook -> GitHub**;
+3. enter the repository `PaoloBardellaPolito/Photonic-Devices-2026`;
+4. open `Ring/All_Pass_Ring.ipynb`;
+5. select **Runtime -> Run all**.
+
+No additional data files are required.
+
+## Main parameters to explore
+
+The interactive controls are:
+
+```python
+t              # field self-coupling coefficient
+L_um           # ring round-trip length [um]
+loss_dB_cm     # waveguide power loss [dB/cm]
+neff0          # effective index at lambda0
+ng             # group index at lambda0
+```
+
+The reference wavelength is fixed at
+
+```python
+lambda0_um = 1.55
+```
+
+so that the role of the other parameters remains easy to interpret.
+
+## Suggested exercises
+
+Possible experiments include:
+
+1. increase the ring length and verify that the FSR decreases;
+2. change $n_g$ and observe the change in resonance spacing;
+3. change $n_{\rm eff,0}$ and observe the shift of the resonance wavelengths;
+4. vary $t$ across the critical-coupling condition $t=a$;
+5. compare undercoupled, critically coupled, and overcoupled responses;
+6. increase propagation loss and observe the changes in linewidth and $Q$;
+7. compare the numerical response with the analytical FSR and FWHM expressions.
+
+## Scope
+
+This is intentionally a compact educational model.
+
+It assumes:
+
+- a single bus waveguide and a single ring mode;
+- a real, wavelength-independent field self-coupling coefficient $t$;
+- a first-order wavelength model for $n_{\rm eff}$;
+- constant group index over the displayed wavelength range;
+- distributed propagation loss represented by a single round-trip amplitude factor.
+
+The notebook does **not** include:
+
+- a wavelength-dependent directional-coupler model;
+- bending radiation calculated from Maxwell's equations;
+- back-reflection;
+- higher-order spatial modes;
+- nonlinear effects;
+- thermal or electro-optic tuning.
+
+Its purpose is not to replace a full electromagnetic simulator, but to provide a compact interactive representation of the all-pass ring model used in the course.
