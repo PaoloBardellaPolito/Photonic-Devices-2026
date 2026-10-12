@@ -1,10 +1,7 @@
 # Interactive All-Pass Ring Resonator
 
 This notebook provides an interactive model of an **all-pass microring resonator** for the *Photonic Devices 2026* course.
-
-[Open the notebook on GitHub](https://github.com/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Ring/All_Pass_Ring.ipynb)
-
-[Open in Google Colab](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Ring/All_Pass_Ring.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PaoloBardellaPolito/Photonic-Devices-2026/blob/main/Ring/All_Pass_Ring.ipynb)
 
 ## Purpose
 
