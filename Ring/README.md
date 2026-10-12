@@ -31,10 +31,7 @@ $$
 The through-port transfer function is
 
 $$
-H_{\rm th}(\lambda)
-=
-\frac{t-p(\lambda)}
-{1-t\,p(\lambda)},
+H_{\rm th}(\lambda)=\frac{t-p(\lambda)}{1-t\,p(\lambda)}.
 $$
 
 and the power transmission is
@@ -46,17 +43,13 @@ $$
 The propagation loss is specified as a **power attenuation coefficient in dB/cm**. The corresponding round-trip field attenuation is
 
 $$
-a
-=
-10^{-\alpha_{\rm dB/cm}L_{\rm cm}/20}.
+a=10^{-\alpha_{\rm dB/cm}L_{\rm cm}/20}.
 $$
 
 At resonance,
 
 $$
-H_{\rm th,res}
-=
-\frac{t-a}{1-ta}.
+H_{\rm th,res}=\frac{t-a}{1-ta}.
 $$
 
 Hence the ring is:
@@ -78,11 +71,7 @@ $$
 Using
 
 $$
-n_g
-=
-n_{\rm eff}
--
-\lambda\frac{d n_{\rm eff}}{d\lambda},
+n_g=n_{\rm eff}-\lambda\frac{d n_{\rm eff}}{d\lambda}.
 $$
 
 the notebook writes
@@ -149,9 +138,7 @@ $$
 and
 
 $$
-Q
-=
-\frac{\lambda_r}{\Delta\lambda_{\rm FWHM}}.
+Q=\frac{\lambda_r}{\Delta\lambda_{\rm FWHM}}.
 $$
 
 For an ideal lossless bus-ring coupler,
